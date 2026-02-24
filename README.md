@@ -1,9 +1,44 @@
-# Airflow lab
+# Airflow Lab 1
 
-- In order to install Airflow using docker you can watch our [Airflow Lab1 Tutorial Video](https://youtu.be/exFSeGUbn4Q?feature=shared)
-- For latest step-by-step instructions, check out this blog - [AirFlow Lab-1](https://www.mlwithramin.com/blog/airflow-lab1)
+This lab demonstrates an end-to-end workflow using Apache Airflow for clustering analysis on student social media addiction data.
 
-### ML Model
+## Workflow Overview
+
+The DAG consists of the following tasks:
+- **load_data_task**: Loads the dataset from CSV.
+- **data_preprocessing_task**: Cleans and preprocesses the data for clustering.
+- **build_save_model_task**: Builds a KMeans clustering model and saves it.
+- **load_model_task**: Loads the model and applies the elbow method to determine the optimal number of clusters.
+
+## DAG Graph View
+
+![DAG Graph](attachments/graph.png)
+
+## DAG Gantt View
+
+![DAG Gantt](attachments/gantt.png)
+
+## Data
+
+The dataset used is `Students Social Media Addiction.csv` located in the `dags/data` folder.
+
+## How to Run
+1. Ensure Docker and Docker Compose are installed and running.
+2. From the `Lab_1` directory, run:
+   ```sh
+   docker-compose up -d
+   ```
+3. Access the Airflow UI at [http://localhost:8080](http://localhost:8080) and trigger the `Airflow_Lab1` DAG.
+
+## Notes
+- The pipeline uses XCom for passing data between tasks.
+- Model artifacts are saved in the `model` directory.
+
+---
+
+For more details, see the code in the `dags` and `dags/src` folders.
+
+# Original Documentation
 
 This script is designed for data clustering using K-Means clustering and determining the optimal number of clusters using the elbow method. It provides functionality to load data from a CSV file, perform data preprocessing, build and save a K-Means clustering model, and determine the number of clusters based on the elbow method.
 
@@ -335,4 +370,4 @@ app-airflow-webserver-1 | 127.0.0.1 - - [17/Feb/2023:09:34:29 +0000] "GET /healt
 
 #### Step 6: Pipeline Outputs
 
-- Once the DAG completes its execution, check any output or artifacts produced by your functions and tasks. 
+- Once the DAG completes its execution, check any output or artifacts produced by your functions and tasks.
