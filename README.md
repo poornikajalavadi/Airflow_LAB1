@@ -12,11 +12,11 @@ The DAG consists of the following tasks:
 
 ## DAG Graph View
 
-![DAG Graph](attachments/graph.png)
+![DAG Graph](images/graph.png)
 
 ## DAG Gantt View
 
-![DAG Gantt](attachments/gantt.png)
+![DAG Gantt](images/gantt.png)
 
 ## Data
 
